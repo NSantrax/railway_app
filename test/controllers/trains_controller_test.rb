@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class TrainsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class TrainsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create train" do
-    assert_difference('Train.count') do
+    assert_difference("Train.count") do
       post trains_url, params: { train: { number: @train.number } }
     end
 
@@ -39,7 +39,7 @@ class TrainsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy train" do
-    assert_difference('Train.count', -1) do
+    assert_difference("Train.count", -1) do
       delete train_url(@train)
     end
 
