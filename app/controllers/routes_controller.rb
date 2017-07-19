@@ -1,6 +1,6 @@
 class RoutesController < ApplicationController
   before_action :set_route, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @routes = Route.all
   end
@@ -11,7 +11,7 @@ class RoutesController < ApplicationController
   def new
     @route = Route.new
   end
-  
+
   def create
     @route = Route.new(route_params)
     if @route.save
@@ -39,11 +39,11 @@ class RoutesController < ApplicationController
 
   private
 
-  def set_route
-    @route = Route.find(params[:id])
-  end
+    def set_route
+      @route = Route.find(params[:id])
+    end
 
-  def route_params
-    params.require(:route).permit(:name)
-  end
+    def route_params
+      params.require(:route).permit(:name)
+    end
 end
