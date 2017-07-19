@@ -26,9 +26,9 @@ class RoutesController < ApplicationController
 
   def update
     if @route.update(route_params)
-      render :edit
-    else
       redirect_to @route
+    else
+      render :edit
     end
   end
 
