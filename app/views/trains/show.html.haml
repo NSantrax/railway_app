@@ -2,6 +2,13 @@
 %p
   %strong Номер:
   = @train.number
+%p
+  %strong Маршрут:
+  - if @train.route
+    = @train.route.name
+  - else
+    Маршрут не назначен.
+
 = link_to 'Редактировать', edit_train_path(@train)
 |
 = link_to 'Список поездов', trains_path
