@@ -1,5 +1,5 @@
 = form_with(model: route, local: true) do |form|
-  = render 'errors', route: @route
+  = render 'common/errors', resource: route
   .field
     = form.label :name
     = form.text_field :name, id: :route_name
