@@ -5,9 +5,21 @@
 %p
   %strong Поезда на маршруте:
   - if @route.trains.empty?
-    На маршруте поездов нет.
+    Поездов на маршруте нет.
   - else
-    = render 'trains/trains', trains: @route.trains
+    - @route.trains.each do |train|
+      %ul
+        %li
+          = train.number
+%p
+  %strong Станции маршрута:
+  - if @route.railway_stations.empty?
+    Станций в маршруте нет.
+  - else
+    - @route.railway_stations.each do |station|
+      %ul
+        %li
+          = station.title
 = link_to 'Редактировать', edit_route_path(@route)
 |
 = link_to 'Список маршрутов', routes_path
