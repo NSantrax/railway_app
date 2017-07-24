@@ -2,6 +2,12 @@
 %p
   %strong Название маршрута:
   = @route.name
+%p
+  %strong Поезда на маршруте:
+  - if @route.trains.empty?
+    На маршруте поездов нет.
+  - else
+    = render 'trains/trains', trains: @route.trains
 = link_to 'Редактировать', edit_route_path(@route)
 |
 = link_to 'Список маршрутов', routes_path
