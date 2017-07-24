@@ -4,4 +4,4 @@
     = form.label :number
     = form.text_field :number, id: :train_number
   .actions
-    = form.submit
+    = form.submit "#{train.new_record? ? 'Создать' : 'Изменить'}"
