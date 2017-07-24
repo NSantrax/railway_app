@@ -1,0 +1,7 @@
+= form_with(model: route, local: true) do |form|
+  = render 'errors', route: @route
+  .field
+    = form.label :name
+    = form.text_field :name, id: :route_name
+  .actions
+    = form.submit route.new_record? ? :Создать : :Изменить
