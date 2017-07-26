@@ -1,6 +1,4 @@
 %p
   %small
     (с) #{Time.now.year} Сизов Алексей. Учебный проект в
-    %a
-      - href="http://www.thinknetica.com"
-      онлайн-школе Thinknetica
+    = link_to 'онлайн-школе Thinknetica', "http://www.thinknetica.com", target: :_blank
