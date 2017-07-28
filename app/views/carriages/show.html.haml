@@ -15,4 +15,5 @@
   %strong Top seats: 
   = @carriage.top_seats
 = link_to 'Edit', edit_carriage_path(@carriage)
+= link_to 'Delete', @carriage, method: :delete, data: { confirm: 'Are you sure?' }
 = link_to 'Train', @carriage.train

@@ -1,5 +1,5 @@
 class CarriagesController < ApplicationController
-  before_action :set_carriage, only: [:edit, :update, :show]
+  before_action :set_carriage, only: [:edit, :update, :show, :destroy]
   def new
     @carriage = Carriage.new
   end
@@ -27,7 +27,13 @@ class CarriagesController < ApplicationController
   def show
   end
 
+  def destroy
+    @carriage.destroy
+    redirect_to @carriage.train
+  end
+  
   private
+  
   def set_carriage
     @carriage = Carriage.find(params[:id])
   end
