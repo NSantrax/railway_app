@@ -12,10 +12,10 @@
   %strong Количество вагонов:
   %br
   Купейных:
-  = @train.carriages.where(type_class: 'coupe').count
+  = @train.carriages.coupe.count
   %br
   Плацкартных:
-  = @train.carriages.where(type_class: 'platscart').count
+  = @train.carriages.platscart.count
 
 = link_to 'Редактировать', edit_train_path(@train)
 |
