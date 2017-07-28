@@ -8,4 +8,12 @@ class Carriage < ApplicationRecord
 
   scope :coupe, -> { where(type_class: 'coupe') }
   scope :platscart, -> { where(type_class: 'platscart') }
+
+  def self.total_seats(type,seats)
+    sum = []
+    send(type).each do |carriage|
+      sum << carriage.send(seats)
+    end
+    sum.sum
+  end
 end
