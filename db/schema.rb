@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170727195104) do
     t.integer "train_id"
     t.integer "bottom_seats", default: 0
     t.integer "top_seats", default: 0
-    t.string "type_class"
+    t.string "type_class", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["train_id"], name: "index_carriages_on_train_id"

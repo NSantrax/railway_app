@@ -8,7 +8,7 @@
     = @train.route.name
   - else
     Маршрут не назначен.
-- if @train.carriages
+- if @train.carriages.any?
   %p
     %strong Количество вагонов:
     %br
