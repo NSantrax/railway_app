@@ -31,14 +31,14 @@ class CarriagesController < ApplicationController
     @carriage.destroy
     redirect_to @carriage.train
   end
-  
-  private
-  
-  def set_carriage
-    @carriage = Carriage.find(params[:id])
-  end
 
-  def carriage_params
-    params.require(:carriage).permit(:train_id, :type_class, :bottom_seats, :top_seats)
-  end
+  private
+
+    def set_carriage
+      @carriage = Carriage.find(params[:id])
+    end
+
+    def carriage_params
+      params.require(:carriage).permit(:train_id, :type_class, :bottom_seats, :top_seats)
+    end
 end
