@@ -13,7 +13,7 @@
           = train.number
 %p
   %strong Станции маршрута:
-  - if @route.railway_stations.empty?
+  - if @route.railway_stations.ordered.empty?
     Станций в маршруте нет.
   - else
     - @route.railway_stations.each do |station|
