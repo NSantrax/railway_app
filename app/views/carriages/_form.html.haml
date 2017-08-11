@@ -1,4 +1,4 @@
-= form_with(model: carriage, local: true) do |form|
+= form_with(model: carriage.becomes(Carriage), local: true) do |form|
   = render 'common/errors', resource: carriage
   .field
     %strong
@@ -8,11 +8,12 @@
     %strong Type
     - Carriage::TYPE_CLASS.each do |type|
       = form.label type
-      = form.radio_button :type_class, type, checked: ( type == Carriage::TYPE_CLASS.first )
-  .field
-    %strong
-      = form.label :bottom_seats
-    = form.number_field :bottom_seats, min: 0
+      = form.radio_button :type, type, checked: ( type == Carriage::TYPE_CLASS.first )
+  - Carriage::SEATS.each do |seat|
+    .field
+      %strong
+        = form.label seat.to_sym
+      = form.number_field seat.to_sym, min: 0
   .field
     %strong
       = form.label :top_seats

@@ -9,6 +9,7 @@ class Carriage < ApplicationRecord
   end
 
   TYPE_CLASS.each do |type|
+    type = type.downcase.sub('carriage', '')
     scope type.to_sym, -> { where(type: type) }
   end
 

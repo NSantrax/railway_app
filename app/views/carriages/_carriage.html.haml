@@ -6,13 +6,12 @@
     The train is not assigned.
   %br
   %strong Type: 
-  = carriage.type_class
+  = carriage.type
   %br
-  %strong Bottom seats: 
-  = carriage.bottom_seats
-  %br
-  %strong Top seats: 
-  = carriage.top_seats
+  - Carriage::SEATS.each do |seat|
+    %strong Bottom seats: 
+    = carriage.send(seat.to_sym)
+    %br
 = link_to 'Edit', edit_carriage_path(carriage)
 = link_to 'Delete', carriage, method: :delete, data: { confirm: 'Are you sure?' }
 = link_to 'Train', carriage.train

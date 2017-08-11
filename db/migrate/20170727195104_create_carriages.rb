@@ -8,7 +8,7 @@ class CreateCarriages < ActiveRecord::Migration[5.1]
       t.integer :side_bottom_seats, default: 0
       t.integer :chair_seats, default: 0
 
-      t.string :type
+      t.string :type, null: false
       t.belongs_to :train, index: true
 
       t.timestamps
