@@ -8,6 +8,7 @@ class Carriage < ApplicationRecord
 
   validates :type, inclusion: { in: TYPE_CLASS, message: "%{value} is not a valid type of carriage" }
   validates :number, uniqueness: { scope: :train_id }
+
   SEATS.each do |seat|
     validates seat.to_sym, numericality: { greater_than_or_equal_to: 0 }
   end

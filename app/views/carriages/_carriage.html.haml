@@ -1,4 +1,7 @@
 %p
+  %strong Number:
+  = carriage.number
+  %br
   %strong Train:
   - if carriage.train
     = carriage.train.number
@@ -9,8 +12,11 @@
   = carriage.type
   %br
   - Carriage::SEATS.each do |seat|
-    %strong Bottom seats: 
-    = carriage.send(seat.to_sym)
+    - quantity = carriage.send(seat.to_sym)
+    - if quantity != 0
+      %strong
+        = seat.gsub('_', ' ').capitalize
+      = quantity
     %br
 = link_to 'Edit', edit_carriage_path(carriage)
 = link_to 'Delete', carriage, method: :delete, data: { confirm: 'Are you sure?' }

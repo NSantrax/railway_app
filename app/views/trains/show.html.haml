@@ -9,6 +9,11 @@
   - else
     Маршрут не назначен.
 - if @train.carriages.any?
+  %ul
+    - @train.carriages.each do |carriage|
+      %li
+        = link_to carriage.number, carriage
+
   %p
     %strong Количество вагонов:
     %br
