@@ -16,12 +16,7 @@ class Carriage < ApplicationRecord
   scope :car_sort, ->(train) { train.car_sort ? order("number ASC") : order("number DESC") }
 
   TYPE_CLASS.each do |type|
-    type = type.downcase.sub("carriage", "")
-    scope type.to_sym, -> { where(type: type) }
-  end
-
-  def self.total_seats(type, seats)
-    send(type).sum(seats)
+    scope type.downcase.sub("carriage", "").to_sym, -> { where(type: type) }
   end
 
   private

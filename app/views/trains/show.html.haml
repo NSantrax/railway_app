@@ -24,19 +24,19 @@
     = @train.carriages.coupe.count
     %br
     Верхних мест всего:
-    = @train.carriages.total_seats(:coupe, :top_seats)
+    = @train.total_seats(:coupe_carriage, :top_seats)
     %br
     Нижних мест всего:
-    = @train.carriages.total_seats(:coupe, :bottom_seats)
+    = @train.total_seats(:coupe_carriage, :bottom_seats)
     %br
     Плацкартных:
     = @train.carriages.economy.count
     %br
     Верхних мест всего:
-    = @train.carriages.total_seats(:economy, :top_seats)
+    = @train.total_seats(:economy_carriage, :top_seats)
     %br
     Нижних мест всего:
-    = @train.carriages.total_seats(:economy, :bottom_seats)
+    = @train.total_seats(:economy_carriage, :bottom_seats)
 - else
   %strong К поезду не прицеплен ни один вагон
 
