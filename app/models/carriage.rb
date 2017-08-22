@@ -13,8 +13,10 @@ class Carriage < ApplicationRecord
     validates seat.to_sym, numericality: { greater_than_or_equal_to: 0 }
   end
 
+  scope :car_sort, ->(train) { train.car_sort ? order("number ASC") : order("number DESC") }
+
   TYPE_CLASS.each do |type|
-    type = type.downcase.sub('carriage', '')
+    type = type.downcase.sub("carriage", "")
     scope type.to_sym, -> { where(type: type) }
   end
 
@@ -24,7 +26,7 @@ class Carriage < ApplicationRecord
 
   private
 
-  def set_number
-    self.number ||= train.carriages.maximum('number').to_i + 1
-  end
+    def set_number
+      self.number ||= train.carriages.maximum("number").to_i + 1
+    end
 end
