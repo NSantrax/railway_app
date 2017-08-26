@@ -13,13 +13,24 @@
           = train.number
 %p
   %strong Станции маршрута:
-  - if @route.railway_stations.ordered.empty?
+  - if @route.railway_stations.empty?
     Станций в маршруте нет.
   - else
-    - @route.railway_stations.each do |station|
-      %ul
-        %li
-          = station.title
+    %table
+      %thead
+        %tr
+          %td Название
+          %td Позиция
+      %tbody
+        - @route.railway_stations.ordered.each do |station|
+          %tr
+            %td
+              = station.title
+            %td
+              = form_tag update_position_railway_station_path(station), method: :patch do
+                = number_field_tag :position, station.position_in(@route), min: 0
+                = hidden_field_tag :route_id, @route.id
+                = submit_tag 'Изменить'
 = link_to 'Редактировать', edit_route_path(@route)
 |
 = link_to 'Список маршрутов', routes_path
