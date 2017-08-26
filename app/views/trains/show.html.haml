@@ -8,27 +8,35 @@
     = @train.route.name
   - else
     Маршрут не назначен.
+%h4 Вагоны
+%p
 - if @train.carriages.any?
+  Coртировка:
+  = @train.car_sort ? "С головы поезда" : "С хвоста поезда"
+  %ul
+    - @train.carriages.car_sort(@train).each do |carriage|
+      %li
+        = link_to carriage.number, carriage
   %p
-    %strong Количество вагонов:
+    Количество вагонов:
     %br
     Купейных:
     = @train.carriages.coupe.count
     %br
     Верхних мест всего:
-    = @train.carriages.total_seats(:coupe, :top_seats)
+    = @train.total_seats(:coupe_carriage, :top_seats)
     %br
     Нижних мест всего:
-    = @train.carriages.total_seats(:coupe, :bottom_seats)
+    = @train.total_seats(:coupe_carriage, :bottom_seats)
     %br
     Плацкартных:
-    = @train.carriages.platscart.count
+    = @train.carriages.economy.count
     %br
     Верхних мест всего:
-    = @train.carriages.total_seats(:platscart, :top_seats)
+    = @train.total_seats(:economy_carriage, :top_seats)
     %br
     Нижних мест всего:
-    = @train.carriages.total_seats(:platscart, :bottom_seats)
+    = @train.total_seats(:economy_carriage, :bottom_seats)
 - else
   %strong К поезду не прицеплен ни один вагон
 
