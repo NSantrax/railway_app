@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170826144230) do
     t.integer "side_top_seats", default: 0
     t.integer "side_bottom_seats", default: 0
     t.integer "chair_seats", default: 0
-    t.string "type"
+    t.string "type", null: false
     t.integer "train_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
