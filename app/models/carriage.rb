@@ -10,7 +10,7 @@ class Carriage < ApplicationRecord
   validates :number, uniqueness: { scope: :train_id }
 
   SEATS.each do |seat|
-    validates seat.to_sym, numericality: { greater_than_or_equal_to: 0 }
+    validates seat.to_sym, numericality: { greater_than_or_equal_to: 0, only_integer: true }
   end
 
   scope :car_sort, ->(train) { train.car_sort ? order("number ASC") : order("number DESC") }
