@@ -14,6 +14,15 @@ class RailwayStation < ApplicationRecord
     station_route(route).try(:position)
   end
 
+  def update_event_time(route, event, time)
+    station_route = station_route(route)
+    station_route.update("#{event}_time".to_sym => time) if station_route
+  end
+
+  def event_time(route, event)
+    station_route(route).try("#{event}_time".to_sym).try(:strftime, "%H:%M")
+  end
+
   protected
 
     def station_route(route)

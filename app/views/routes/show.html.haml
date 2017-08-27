@@ -21,6 +21,8 @@
         %tr
           %td Название
           %td Позиция
+          %td Прибытие
+          %td Отправление
       %tbody
         - @route.railway_stations.ordered.each do |station|
           %tr
@@ -29,6 +31,16 @@
             %td
               = form_tag update_position_railway_station_path(station), method: :patch do
                 = number_field_tag :position, station.position_in(@route), min: 0
+                = hidden_field_tag :route_id, @route.id
+                = submit_tag 'Изменить'
+            %td
+              = form_tag update_arrival_railway_station_path(station), method: :patch do
+                = time_field_tag   :arrival_time, station.event_time(@route, :arrival)
+                = hidden_field_tag :route_id, @route.id
+                = submit_tag 'Изменить'
+            %td
+              = form_tag update_departure_railway_station_path(station), method: :patch do
+                = time_field_tag   :departure_time, station.event_time(@route, :departure)
                 = hidden_field_tag :route_id, @route.id
                 = submit_tag 'Изменить'
 = link_to 'Редактировать', edit_route_path(@route)
