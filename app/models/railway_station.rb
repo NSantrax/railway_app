@@ -23,6 +23,11 @@ class RailwayStation < ApplicationRecord
     station_route(route).try("#{event}_time".to_sym).try(:strftime, "%H:%M")
   end
 
+  def self.find_routes(station1, station2)
+    return if station1 == station2
+    station1.routes & station2.routes
+  end
+
   protected
 
     def station_route(route)

@@ -1,0 +1,26 @@
+%h1 Поиск билетов
+= render 'form'
+- if @routes.present?
+  %h2 Результаты поиска
+  %table
+    %thead
+      %tr
+        %td Номер поезда
+        %td
+          Время отправления со станции
+          %br
+          = @start_station.title
+        %td
+          Время прибытия на станцию
+          %br
+          = @end_station.title
+    %tbody
+    - @routes.each do |route|
+      - route.trains.each do |train|
+        %tr
+          %td
+            = link_to train.number, train
+          %td
+            = RailwayStation.find(@start_station.id).event_time(route, :departure)
+          %td
+            = RailwayStation.find(@end_station.id).event_time(route, :arrival)

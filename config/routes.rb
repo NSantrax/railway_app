@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :coupe_carriages,   controller: "carriages", type: "CoupeCarriage"
   resources :economy_carriages, controller: "carriages", type: "EconomyCarriage"
   resources :sv_carriages,      controller: "carriages", type: "SvCarriage"
+
+  resource :search, only: [:show, :create]
 end

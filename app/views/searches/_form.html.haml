@@ -1,0 +1,8 @@
+= form_tag search_path, method: :post do
+  .field
+    = label_tag :start_station, 'Начальная станция'
+    = select_tag :start_station_id, options_from_collection_for_select(RailwayStation.all, 'id', 'title')
+    = label_tag :end_station, 'Конечная станция'
+    = select_tag :end_station_id, options_from_collection_for_select(RailwayStation.all, 'id', 'title')
+  .actions
+    = submit_tag "Искать"
