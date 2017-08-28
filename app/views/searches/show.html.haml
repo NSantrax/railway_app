@@ -14,6 +14,7 @@
           Время прибытия на станцию
           %br
           = @end_station.title
+        %td
     %tbody
     - @routes.each do |route|
       - route.trains.each do |train|
@@ -24,3 +25,10 @@
             = RailwayStation.find(@start_station.id).event_time(route, :departure)
           %td
             = RailwayStation.find(@end_station.id).event_time(route, :arrival)
+          %td
+            = form_tag new_ticket_path, method: :get do
+              = hidden_field_tag :train_id, train.id
+              = hidden_field_tag :user_id, @user.id
+              = hidden_field_tag :start_station_id, @start_station.id
+              = hidden_field_tag :end_station_id, @end_station.id
+              = submit_tag 'Купить'

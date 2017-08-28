@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :sv_carriages,      controller: "carriages", type: "SvCarriage"
 
   resource :search, only: [:show, :create]
+
+  resources :tickets, only: [:new, :create, :show]
 end
