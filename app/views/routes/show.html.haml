@@ -36,7 +36,7 @@
             - [:arrival, :departure].each do |event|
               %td
                 = form_tag update_event_railway_station_path(station), method: :patch do
-                  = time_field_tag :event_time, station.event_time(@route, event)
+                  = time_field_tag :event_time, station.event_time(@route, event).try(:strftime, "%H:%M")
                   = hidden_field_tag :event, event
                   = hidden_field_tag :route_id, @route.id
                   = submit_tag 'Изменить'

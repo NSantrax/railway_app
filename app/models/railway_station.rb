@@ -20,7 +20,7 @@ class RailwayStation < ApplicationRecord
   end
 
   def event_time(route, event)
-    station_route(route).try("#{event}_time".to_sym).try(:strftime, "%H:%M")
+    station_route(route).try("#{event}_time".to_sym)
   end
 
   def self.find_routes(station1, station2)
