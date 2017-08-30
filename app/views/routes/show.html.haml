@@ -1,6 +1,6 @@
 %p#notice= notice
-%p
-  %strong Название маршрута:
+%h1
+  Название маршрута:
   = @route.name
 %p
   %strong Поезда на маршруте:
@@ -13,13 +13,33 @@
           = train.number
 %p
   %strong Станции маршрута:
-  - if @route.railway_stations.ordered.empty?
+  - if @route.railway_stations.empty?
     Станций в маршруте нет.
   - else
-    - @route.railway_stations.each do |station|
-      %ul
-        %li
-          = station.title
+    %table
+      %thead
+        %tr
+          %td Название
+          %td Позиция
+          %td Прибытие
+          %td Отправление
+      %tbody
+        - @route.railway_stations.ordered.each do |station|
+          %tr
+            %td
+              = station.title
+            %td
+              = form_tag update_position_railway_station_path(station), method: :patch do
+                = number_field_tag :position, station.position_in(@route), min: 0
+                = hidden_field_tag :route_id, @route.id
+                = submit_tag 'Изменить'
+            - [:arrival, :departure].each do |event|
+              %td
+                = form_tag update_event_railway_station_path(station), method: :patch do
+                  = time_field_tag :event_time, station.event_time(@route, event).try(:strftime, "%H:%M")
+                  = hidden_field_tag :event, event
+                  = hidden_field_tag :route_id, @route.id
+                  = submit_tag 'Изменить'
 = link_to 'Редактировать', edit_route_path(@route)
 |
 = link_to 'Список маршрутов', routes_path

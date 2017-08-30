@@ -1,14 +1,14 @@
 %p
-  %strong Number:
+  %strong Вагон номер:
   = carriage.number
   %br
-  %strong Train:
+  %strong Номер поезда:
   - if carriage.train
     = carriage.train.number
   - else
     The train is not assigned.
   %br
-  %strong Type: 
+  %strong Тип: 
   = carriage.type
   %br
   - Carriage::SEATS.each do |seat|
@@ -18,6 +18,6 @@
         = seat.gsub('_', ' ').capitalize
       = quantity
     %br
-= link_to 'Edit', edit_carriage_path(carriage)
-= link_to 'Delete', carriage, method: :delete, data: { confirm: 'Are you sure?' }
-= link_to 'Train', carriage.train
+= link_to 'Редактировать', edit_carriage_path(carriage)
+= link_to 'Удалить', carriage, method: :delete, data: { confirm: 'Вы уверены?' }
+= link_to 'Назад к поезду', carriage.train

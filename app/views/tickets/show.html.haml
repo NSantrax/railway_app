@@ -1,0 +1,26 @@
+%h1 
+  Билет номер:
+  = @ticket.id
+%table
+  %thead
+    %tr
+      %td Поезд номер
+      %td Фамилия
+      %td Имя
+      %td Отчество
+      %td Станция отправления
+      %td Станция прибытия
+  %tbody
+    %tr
+      %td 
+        = @ticket.train.number
+      %td 
+        = @ticket.last_name
+      %td 
+        = @ticket.first_name
+      %td 
+        = @ticket.middle_name
+      %td 
+        = @ticket.start_station.title
+      %td 
+        = @ticket.end_station.title
