@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  root "searches#show"
+
   resources :railway_stations do
     patch :update_position,  on: :member
     patch :update_event,     on: :member
   end
+
   resources :routes
+
   resources :trains do
     resources :carriages, shallow: true
   end
