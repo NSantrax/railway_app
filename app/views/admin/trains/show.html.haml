@@ -1,0 +1,47 @@
+%p#notice= notice
+%p
+  %strong Поезд номер:
+  = @train.number
+%p
+  %strong Маршрут:
+  - if @train.route
+    = @train.route.name
+  - else
+    Маршрут не назначен.
+%h4 Вагоны
+%p
+- if @train.carriages.any?
+  Coртировка:
+  = @train.car_sort ? "С головы поезда" : "С хвоста поезда"
+  %ul
+    - @train.carriages.car_sort(@train).each do |carriage|
+      %li
+        = link_to "Вагон № #{carriage.number}", [:admin, carriage]
+  %p
+    Количество вагонов:
+    %br
+    Купейных:
+    = @train.carriages.coupe.count
+    %br
+    Верхних мест всего:
+    = @train.total_seats(:coupe_carriage, :top_seats)
+    %br
+    Нижних мест всего:
+    = @train.total_seats(:coupe_carriage, :bottom_seats)
+    %br
+    Плацкартных:
+    = @train.carriages.economy.count
+    %br
+    Верхних мест всего:
+    = @train.total_seats(:economy_carriage, :top_seats)
+    %br
+    Нижних мест всего:
+    = @train.total_seats(:economy_carriage, :bottom_seats)
+- else
+  %strong К поезду не прицеплен ни один вагон
+
+= link_to 'Редактировать', edit_admin_train_path(@train)
+|
+= link_to 'Список поездов', admin_trains_path
+|
+= link_to 'Добавить вагон', new_admin_train_carriage_path(@train)

@@ -1,0 +1,15 @@
+= form_with(model: [:admin, train], local: true) do |form|
+  = render 'common/errors', resource: train
+  .field
+    = form.label :number
+    = form.text_field :number, id: :train_number
+  .field
+    = form.label :route
+    = form.collection_select :route_id, Route.all, :id, :name
+  .field
+    = form.radio_button :car_sort, true
+    = form.label :car_sort, 'С головы поезда'
+    = form.radio_button :car_sort, false
+    = form.label :car_sort, 'С хвоста поезда'
+  .actions
+    = form.submit "#{train.new_record? ? 'Создать' : 'Изменить'}", class: "btn btn-primary"

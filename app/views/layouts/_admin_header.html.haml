@@ -1,6 +1,12 @@
 %header
   .nav.nav-inline
     .nav-link
+      = link_to 'Маршруты', admin_routes_path
+    .nav-link
+      = link_to 'Поезда',   admin_trains_path
+    .nav-link
+      = link_to 'Станции',  admin_railway_stations_path
+    .nav-link
       = link_to 'Поиск билетов', search_path
     .nav-link
       - if user_signed_in?

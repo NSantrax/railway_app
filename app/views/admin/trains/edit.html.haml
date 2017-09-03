@@ -1,0 +1,5 @@
+%h1 Редактировать поезд
+= render 'form', train: @train
+= link_to 'Показать', [:admin, @train]
+|
+= link_to 'Список поездов', admin_trains_path

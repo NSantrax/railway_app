@@ -5,4 +5,4 @@
     = label_tag :end_station, 'Конечная станция'
     = select_tag :end_station_id, options_from_collection_for_select(RailwayStation.all, 'id', 'title')
   .actions
-    = submit_tag "Искать"
+    = submit_tag "Искать", class: "btn btn-primary"

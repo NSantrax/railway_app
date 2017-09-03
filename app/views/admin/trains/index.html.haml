@@ -1,0 +1,11 @@
+%p#notice= notice
+%h1 Список поездов
+%table
+  %thead
+    %tr
+      %th Номер:
+      %th{:colspan => "3"}
+  %tbody
+    = render @trains
+%br/
+= link_to 'Создать новый поезд', new_admin_train_path

@@ -20,7 +20,7 @@
       - route.trains.each do |train|
         %tr
           %td
-            = link_to train.number, train
+            = link_to train.number, [:admin, train]
           %td
             = RailwayStation.find(@start_station.id).event_time(route, :departure)
           %td
@@ -31,4 +31,4 @@
               = hidden_field_tag :user_id, @user.id
               = hidden_field_tag :start_station_id, @start_station.id
               = hidden_field_tag :end_station_id, @end_station.id
-              = submit_tag 'Купить'
+              = submit_tag 'Купить', class: "btn btn-primary"
