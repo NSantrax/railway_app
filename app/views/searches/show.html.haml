@@ -2,19 +2,19 @@
 = render 'form'
 - if @routes.present?
   %h2 Результаты поиска
-  %table
-    %thead
+  %table.table.table-bordered
+    %thead.thead-default
       %tr
-        %td Номер поезда
-        %td
+        %th Номер поезда
+        %th
           Время отправления со станции
           %br
           = @start_station.title
-        %td
+        %th
           Время прибытия на станцию
           %br
           = @end_station.title
-        %td
+        %th
     %tbody
     - @routes.each do |route|
       - route.trains.each do |train|

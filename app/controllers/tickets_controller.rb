@@ -1,6 +1,10 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show]
+  before_action :set_ticket, only: [:show, :destroy]
   before_action :authenticate_user!
+
+  def index
+    @tickets = current_user.tickets
+  end
 
   def new
     @ticket = current_user.tickets.new
@@ -16,6 +20,11 @@ class TicketsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @ticket.destroy
+    redirect_to tickets_path
   end
 
   private

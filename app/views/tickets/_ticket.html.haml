@@ -1,0 +1,32 @@
+%table.table.table-bordered
+  %thead.thead-default
+    %tr
+      %th Номер билета
+      %th Поезд номер
+      %th Фамилия
+      %th Имя
+      %th Отчество
+      %th Станция отправления
+      %th Станция прибытия
+      %th{:colspan => "2"}
+  %tbody
+    %tr
+      %td
+        = ticket.id
+      %td 
+        = ticket.train.number
+      %td 
+        = ticket.last_name
+      %td 
+        = ticket.first_name
+      %td 
+        = ticket.middle_name
+      %td 
+        = ticket.start_station.title
+      %td 
+        = ticket.end_station.title
+      %td
+        = link_to 'Показать', ticket
+      %td
+        = link_to 'Удалить', ticket, method: :delete, data: { confirm: 'Вы уверены?' }
+%br
