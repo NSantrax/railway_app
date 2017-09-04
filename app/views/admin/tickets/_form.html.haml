@@ -1,0 +1,23 @@
+= form_with(model: [:admin, ticket], local: true) do |form|
+  = render 'common/errors', resource: ticket
+  .form-group.row
+    = form.label :last_name, 'Фамилия', class: "col-2 col-form-label"
+    .col-10
+      = form.text_field :last_name, class: "form-contol"
+  .form-group.row
+    = form.label :first_name, 'Имя', class: "col-2 col-form-label"
+    .col-10
+      = form.text_field :first_name, class: "form-contol"
+  .form-group.row
+    = form.label :middle_name, 'Отчество', class: "col-2 col-form-label"
+    .col-10
+      = form.text_field :middle_name, class: "form-contol"
+  .form-group.row
+    = form.label :passport_number, 'Номер паспорта', class: "col-2 col-form-label"
+    .col-10
+      = form.text_field :passport_number, class: "form-contol"
+  .form-group.row
+    = form.label :user_id, "Выбрать Пользователя", class: "col-2 col-form-label"
+    = form.collection_select :user_id, User.all, :id, :email, class: "form-control"
+  .actions
+    = form.submit 'Сохранить', class: "btn btn-primary"

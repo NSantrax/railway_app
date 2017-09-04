@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :trains do
       resources :carriages, shallow: true
     end
+    resources :tickets
 
     resources :chair_carriages,   controller: "carriages", type: "ChairCarriage"
     resources :coupe_carriages,   controller: "carriages", type: "CoupeCarriage"
