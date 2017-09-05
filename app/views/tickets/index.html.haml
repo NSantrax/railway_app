@@ -2,5 +2,5 @@
 - if current_user.tickets.present?
   = render @tickets
 - else
-  %h2 У Вас нет ни одного билета
-  = link_to 'Поиск билетов', new_ticket_path
+  %h3 У Вас нет ни одного билета
+  = link_to 'Поиск билетов', search_path
