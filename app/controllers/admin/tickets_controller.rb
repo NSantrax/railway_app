@@ -8,6 +8,19 @@ class Admin::TicketsController < Admin::BaseController
   def show
   end
 
+  def new
+    @ticket = Ticket.new
+  end
+
+  def create
+    @ticket = Ticket.new(ticket_params)
+    if @ticket.save
+      redirect_to admin_tickets_path, notice: "Ticket successfully created."
+    else
+      render :new
+    end
+  end
+
   def edit
   end
 
@@ -27,7 +40,7 @@ class Admin::TicketsController < Admin::BaseController
   private
     def ticket_params
       params.require(:ticket).permit(
-        :user_id,
+        :train_id, :user_id,
         :last_name, :first_name, :middle_name,
         :passport_number, :start_station_id, :end_station_id
       )

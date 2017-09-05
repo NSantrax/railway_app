@@ -19,7 +19,7 @@ class Admin::RailwayStationsController < Admin::BaseController
   def create
     @railway_station = RailwayStation.new(railway_station_params)
     if @railway_station.save
-      redirect_to [:admin, @railway_station]
+      redirect_to [:admin, @railway_station], notice: "Railway station successfully created."
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::RailwayStationsController < Admin::BaseController
 
   def update
     if @railway_station.update(railway_station_params)
-      redirect_to [:admin, @railway_station]
+      redirect_to [:admin, @railway_station], notice: "Railway successfully updated."
     else
       render :edit
     end
