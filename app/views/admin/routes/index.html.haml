@@ -1,0 +1,11 @@
+%p#notice= notice
+%h1 Список маршрутов:
+%table.table.table-bordered
+  %thead.thead-default
+    %tr
+      %th Название маршрута
+      %th{:colspan => "3"}
+  %tbody
+    = render @routes
+%br/
+= link_to 'Создать новый маршрут', new_admin_route_path

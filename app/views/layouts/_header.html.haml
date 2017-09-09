@@ -1,10 +1,13 @@
 %header
   .nav.nav-inline
-    .nav-link
-      = link_to 'Маршруты', routes_path
-    .nav-link
-      = link_to 'Поезда',   trains_path
-    .nav-link
-      = link_to 'Станции',  railway_stations_path
-    .nav-link
-      = link_to 'Поиск билетов', search_path
+    - if user_signed_in?
+
+      - if current_user.admin?
+        = render 'layouts/admin_links'
+      - else
+        = link_to 'Поиск билетов', search_path, class: 'nav-link'
+
+      = link_to 'Список билетов', current_user.admin? ? admin_tickets_path : tickets_path, class: 'nav-link'
+      = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link'
+    - else
+      = link_to 'Login', new_user_session_path, class: 'nav-link'

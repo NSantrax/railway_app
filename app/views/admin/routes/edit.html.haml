@@ -1,0 +1,5 @@
+%h1 Редактирование Маршрута
+= render 'form', route: @route
+= link_to 'Показать', [:admin, @route]
+|
+= link_to 'Список маршрутов', admin_routes_path

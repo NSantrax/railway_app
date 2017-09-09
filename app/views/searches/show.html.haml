@@ -2,25 +2,25 @@
 = render 'form'
 - if @routes.present?
   %h2 Результаты поиска
-  %table
-    %thead
+  %table.table.table-bordered
+    %thead.thead-default
       %tr
-        %td Номер поезда
-        %td
+        %th Номер поезда
+        %th
           Время отправления со станции
           %br
           = @start_station.title
-        %td
+        %th
           Время прибытия на станцию
           %br
           = @end_station.title
-        %td
+        %th
     %tbody
     - @routes.each do |route|
       - route.trains.each do |train|
         %tr
           %td
-            = link_to train.number, train
+            = link_to train.number, [:admin, train]
           %td
             = RailwayStation.find(@start_station.id).event_time(route, :departure)
           %td
@@ -28,7 +28,6 @@
           %td
             = form_tag new_ticket_path, method: :get do
               = hidden_field_tag :train_id, train.id
-              = hidden_field_tag :user_id, @user.id
               = hidden_field_tag :start_station_id, @start_station.id
               = hidden_field_tag :end_station_id, @end_station.id
-              = submit_tag 'Купить'
+              = submit_tag 'Купить', class: "btn btn-primary"

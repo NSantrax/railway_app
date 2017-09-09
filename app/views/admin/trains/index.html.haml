@@ -1,0 +1,10 @@
+%h1 Список поездов
+%table.table.table-bordered
+  %thead.thead-default
+    %tr
+      %th Номер:
+      %th{:colspan => "3"}
+  %tbody
+    = render @trains
+%br/
+= link_to 'Создать новый поезд', new_admin_train_path

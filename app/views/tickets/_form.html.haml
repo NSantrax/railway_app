@@ -1,21 +1,24 @@
 = form_with(model: ticket, local: true) do |form|
   = render 'common/errors', resource: ticket
-  .field
-    = form.label :last_name, 'Фамилия'
-    = form.text_field :last_name
-  .field
-    = form.label :first_name, 'Имя'
-    = form.text_field :first_name
-  .field
-    = form.label :middle_name, 'Отчество'
-    = form.text_field :middle_name
-  .field
-    = form.label :passport_number, 'Номер паспорта'
-    = form.text_field :passport_number
-  .field
+  .form-group.row
+    = form.label :last_name, 'Фамилия', class: "col-2 col-form-label"
+    .col-10
+      = form.text_field :last_name, class: "form-contol"
+  .form-group.row
+    = form.label :first_name, 'Имя', class: "col-2 col-form-label"
+    .col-10
+      = form.text_field :first_name, class: "form-contol"
+  .form-group.row
+    = form.label :middle_name, 'Отчество', class: "col-2 col-form-label"
+    .col-10
+      = form.text_field :middle_name, class: "form-contol"
+  .form-group.row
+    = form.label :passport_number, 'Номер паспорта', class: "col-2 col-form-label"
+    .col-10
+      = form.text_field :passport_number, class: "form-contol"
+  .form-group
     = form.hidden_field :train_id, value: params[:train_id]
-    = form.hidden_field :user_id, value: params[:user_id]
     = form.hidden_field :start_station_id, value: params[:start_station_id]
     = form.hidden_field :end_station_id, value: params[:end_station_id]
   .actions
-    = form.submit 'Купить'
+    = form.submit 'Купить', class: "btn btn-primary"
