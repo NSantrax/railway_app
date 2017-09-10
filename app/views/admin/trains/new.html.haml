@@ -1,3 +1,4 @@
-%h1 Новый поезд
+%h1
+  = t('.title')
 = render 'form', train: @train
-= link_to 'Список поездов', admin_trains_path
+= link_to t('admin.trains.list'), admin_trains_path

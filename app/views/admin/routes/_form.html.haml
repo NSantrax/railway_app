@@ -4,4 +4,4 @@
     = form.label :name
     = form.text_field :name, id: :route_name
   .actions
-    = form.submit "#{route.new_record? ? 'Создать' : 'Изменить'}", class: "btn btn-primary"
+    = form.submit t('.submit', action: route.new_record? ? 'Создать' : 'Изменить'), class: "btn btn-primary"

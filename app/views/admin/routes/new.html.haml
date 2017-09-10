@@ -1,3 +1,4 @@
-%h1 Новый маршрут
+%h1
+  = t('.title')
 = render 'form', route: @route
-= link_to 'Список маршрутов', admin_routes_path
+= link_to t('admin.routes.list'), admin_routes_path

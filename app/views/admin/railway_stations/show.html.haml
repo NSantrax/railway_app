@@ -1,7 +1,7 @@
 %p#notice= notice
-%p
-  %strong Название:
-  = @railway_station.title
-= link_to 'Редактировать', edit_admin_railway_station_path(@railway_station)
+%h1
+  %strong
+    = @railway_station.title
+= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station)
 |
-= link_to 'Список станций', admin_railway_stations_path
+= link_to t('admin.railway_stations.list'), admin_railway_stations_path
