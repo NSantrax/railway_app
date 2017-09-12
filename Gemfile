@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+ruby '2.4.0'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -6,7 +7,6 @@ git_source(:github) do |repo_name|
 end
 
 gem "rails", "~> 5.1.2"
-gem "sqlite3"
 gem "puma", "~> 3.7"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
@@ -19,6 +19,8 @@ gem "haml-rails", "~> 0.9"
 gem "bootstrap", "~> 4.0.0.beta"
 gem "jquery-rails"
 gem "devise"
+gem "rails_12factor"
+gem 'pg'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
