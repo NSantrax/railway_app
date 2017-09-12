@@ -23,7 +23,7 @@ class TicketsController < ApplicationController
   end
 
   def destroy
-    @ticket.desrtoy if current_user == @ticket.user
+    @ticket.destroy if current_user == @ticket.user
     redirect_to tickets_path
   end
 
