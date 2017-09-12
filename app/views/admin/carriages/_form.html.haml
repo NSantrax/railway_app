@@ -10,9 +10,5 @@
       %strong
         = form.label seat.to_sym
       = form.number_field seat.to_sym, min: 0
-  .field
-    %strong
-      = form.label :top_seats
-    = form.number_field :top_seats, min: 0
   .actions
     = form.submit "#{carriage.new_record? ? 'Создать' : 'Изменить'}", class: "btn btn-primary"

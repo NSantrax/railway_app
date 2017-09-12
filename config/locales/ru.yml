@@ -1,0 +1,32 @@
+ru:
+  common:
+    show: 'Показать'
+    edit: 'Редактировать'
+    delete: 'Удалить'
+    confirm: 'Вы уверены?'
+  admin:
+    railway_stations:
+      new:
+        title: 'Новая станция'
+      edit:
+        title: 'Редактировать станцию'
+      list: 'Список станций'
+    routes:
+      new:
+        title: 'Новый маршрут'
+      edit:
+        title: 'Редактировать маршрут'
+      list: 'Список маршрутов'
+    trains:
+      new:
+        title: 'Новый поезд'
+      edit:
+        title: 'Редактировать поезд'
+      list: 'Список поездов'
+      car_sort:
+        head: 'С головы поезда'
+        tail: 'С хвоста поезда'
+  helpers:
+    submit:
+      create: 'Создать'
+      update: 'Изменить'

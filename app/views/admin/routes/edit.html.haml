@@ -1,5 +1,6 @@
-%h1 Редактирование Маршрута
+%h1 
+  = t('.title')
 = render 'form', route: @route
-= link_to 'Показать', [:admin, @route]
+= link_to t('common.show'), [:admin, @route]
 |
-= link_to 'Список маршрутов', admin_routes_path
+= link_to t('admin.routes.list'), admin_routes_path

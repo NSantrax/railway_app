@@ -40,6 +40,6 @@
                   = hidden_field_tag :event, event
                   = hidden_field_tag :route_id, @route.id
                   = submit_tag 'Изменить'
-= link_to 'Редактировать', edit_admin_route_path(@route)
+= link_to t('common.edit'), edit_admin_route_path(@route)
 |
-= link_to 'Список маршрутов', admin_routes_path
+= link_to t('admin.routes.list'), admin_routes_path

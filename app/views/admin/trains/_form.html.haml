@@ -8,8 +8,8 @@
     = form.collection_select :route_id, Route.all, :id, :name
   .field
     = form.radio_button :car_sort, true
-    = form.label :car_sort, 'С головы поезда'
+    = form.label :car_sort, t('admin.trains.car_sort.head')
     = form.radio_button :car_sort, false
-    = form.label :car_sort, 'С хвоста поезда'
+    = form.label :car_sort, t('admin.trains.car_sort.tail')
   .actions
-    = form.submit "#{train.new_record? ? 'Создать' : 'Изменить'}", class: "btn btn-primary"
+    = form.submit
