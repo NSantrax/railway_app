@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby '2.4.0'
+ruby "2.4.0"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -20,7 +20,8 @@ gem "bootstrap", "~> 4.0.0.beta"
 gem "jquery-rails"
 gem "devise"
 gem "rails_12factor"
-gem 'pg'
+gem "sendgrid-ruby"
+gem "pg"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
