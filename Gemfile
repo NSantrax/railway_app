@@ -15,7 +15,7 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 
 gem "haml"
-gem "haml-rails", "~> 0.9"
+gem "haml-rails"
 gem "bootstrap", "~> 4.0.0.beta"
 gem "jquery-rails"
 gem "devise"
