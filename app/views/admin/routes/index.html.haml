@@ -1,9 +1,9 @@
 %p#notice= notice
-%h1
-  = t('admin.routes.list')
 %table.table.table-bordered
   %thead.thead-default
     %tr
+      %th
+        = t('admin.routes.list')
       %th{:colspan => "3"}
   %tbody
     = render @routes
