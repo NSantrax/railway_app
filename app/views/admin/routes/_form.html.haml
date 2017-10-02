@@ -1,4 +1,5 @@
-= form_with(model: [:admin, route], local: true) do |form|
+- hidden = false unless local_assigns[:hidden]
+= form_for [:admin, route], html: { style: "display: #{ hidden ? 'none' : 'block'}" } do |form|
   = render 'common/errors', resource: route
   .field
     = form.label :name
