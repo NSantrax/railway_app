@@ -1,4 +1,4 @@
-= form_with(model: [:admin, railway_station], local: true) do |form|
+= form_for [:admin, railway_station], html: { style: "display: #{ hidden ? 'none' : 'block'}"} do |form|
   = render 'common/errors', resource: railway_station
   .field
     = form.label :title
