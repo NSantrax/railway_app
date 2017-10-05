@@ -1,14 +1,24 @@
-= form_with(model: [:admin, @train, carriage.becomes(Carriage)], local: true) do |form|
+= form_for [:admin, @train, carriage.becomes(Carriage)] do |form|
   = render 'common/errors', resource: carriage
   .field 
     %strong Type
-    - Carriage::TYPE_CLASS.each do |type|
-      = form.label type
-      = form.radio_button :type, type, checked: ( type == Carriage::TYPE_CLASS.first )
-  - Carriage::SEATS.each do |seat|
-    .field
-      %strong
-        = form.label seat.to_sym
-      = form.number_field seat.to_sym, min: 0
-  .actions
+    = form.label  :type
+    = form.select :type, ['', Carriage::CARRIAGE_TYPES].flatten
+
+  .field.ChairCarriage.seats
+    = form.label :chair_seats
+    = form.number_field :chair_seats, min: 0
+  .field.EconomyCarriage.CoupeCarriage.seats
+    = form.label :top_seats
+    = form.number_field :top_seats, min: 0
+  .field.EconomyCarriage.CoupeCarriage.SvCarriage.seats
+    = form.label :bottom_seats
+    = form.number_field :bottom_seats, min: 0
+  .field.EconomyCarriage.seats
+    = form.label :side_top_seats
+    = form.number_field :side_top_seats, min: 0
+  .field.EconomyCarriage.seats
+    = form.label :side_bottom_seats
+    = form.number_field :side_bottom_seats, min: 0
+  .actions#submit_carriage_form.seats
     = form.submit "#{carriage.new_record? ? 'Создать' : 'Изменить'}", class: "btn btn-primary"
